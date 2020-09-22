@@ -1,7 +1,7 @@
 import React from 'react'
 import './pages.css'
 
-export default function Game() {
+export default function Home() {
     return (
         <div>
             <h1>Tic Tac Toe</h1>
