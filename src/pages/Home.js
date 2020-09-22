@@ -5,20 +5,20 @@ import MarkModal from '../components/MarkModal'
 
 export default function Home() {
 
-    const [game, setGame] = useState(false);
-    const [modal, setModal] = useState(false);
+    const [game, setGame] = useState();
+    const [start, setStart] = useState(false);
 
     function handleStart() {
-        // setGame(() => {
-        //     const newGame = new Game("Alvin", "Davis");
-        //     return newGame;
-        // })
-        setModal(true);
-        setGame(true);
+        setGame(() => {
+            const newGame = new Game("Alvin", "Davis");
+            return newGame;
+        })
+        setStart(true);
     }
 
     return (
         <div>
+            { start ? <MarkModal /> : '' }
             <h1>Tic Tac Toe</h1>
 
             {
@@ -36,7 +36,7 @@ export default function Home() {
             }
             <h1>
                 {
-                    // game ? `${game.p1.name} vs ${game.p2.name}` : ''
+                    game ? `${game.p1.name} vs ${game.p2.name}` : ''
                 }
             </h1>
             <div className='container'>
@@ -52,9 +52,6 @@ export default function Home() {
                     <div className='box col-4'>O</div>
                 </div>
             </div>
-            {
-                modal ? <MarkModal /> : ''
-            }
         </div>
     )
 }
