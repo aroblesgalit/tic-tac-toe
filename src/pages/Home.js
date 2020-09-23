@@ -16,25 +16,34 @@ export default function Home() {
     }, [])
 
     function handleStart() {
+        console.log(game)
         setStart(true);
+    }
+
+    function closeModal() {
+        setStart(null);
     }
 
     return (
         <div>
-            { start ? <MarkModal chooseMark={game.chooseMark} /> : '' }
+            { start ? <MarkModal chooseMark={() => { game.chooseMark(); closeModal() }} /> : ''}
             <h1>Tic Tac Toe</h1>
 
             {
                 start
                     ? ""
                     : (
-                        <button
-                            type='button'
-                            className='btn btn-primary'
-                            onClick={handleStart}
-                        >
-                            Start
-                        </button>
+                        start === null
+                            ? ''
+                            : (
+                                <button
+                                    type='button'
+                                    className='btn btn-primary'
+                                    onClick={handleStart}
+                                >
+                                    Start
+                                </button>
+                            )
                     )
             }
             <h1>
