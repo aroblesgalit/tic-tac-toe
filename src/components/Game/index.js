@@ -8,6 +8,11 @@ class Game {
             name: p2,
             mark: ""
         };
+        this.marks = [
+            "o", "x", "o",
+            "x", "o", "x",
+            "o", "x", "o"
+        ]
     }
 
     chooseMark(mark) {

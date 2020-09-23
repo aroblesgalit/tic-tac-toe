@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './pages.css'
 import Game from '../components/Game'
 import MarkModal from '../components/MarkModal'
@@ -8,21 +8,24 @@ export default function Home() {
     const [game, setGame] = useState();
     const [start, setStart] = useState(false);
 
-    function handleStart() {
+    useEffect(() => {
         setGame(() => {
             const newGame = new Game("Alvin", "Davis");
             return newGame;
         })
+    }, [])
+
+    function handleStart() {
         setStart(true);
     }
 
     return (
         <div>
-            { start ? <MarkModal /> : '' }
+            { start ? <MarkModal chooseMark={game.chooseMark} /> : '' }
             <h1>Tic Tac Toe</h1>
 
             {
-                game
+                start
                     ? ""
                     : (
                         <button
@@ -36,20 +39,18 @@ export default function Home() {
             }
             <h1>
                 {
-                    game ? `${game.p1.name} vs ${game.p2.name}` : ''
+                    start ? `${game.p1.name} vs ${game.p2.name}` : ''
                 }
             </h1>
             <div className='container'>
                 <div className='box-wrapper row'>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
-                    <div className='box col-4'>O</div>
+                    {
+                        game ? (
+                            game.marks.map((mark, i) => (
+                                <div key={i} className='box col-4'>{mark}</div>
+                            ))
+                        ) : ''
+                    }
                 </div>
             </div>
         </div>
