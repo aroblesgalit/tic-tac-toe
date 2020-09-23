@@ -12,16 +12,13 @@ class Game {
             "o", "x", "o",
             "x", "o", "x",
             "o", "x", "o"
-        ]
+        ];
+        this.turn = 0;
     }
 
     chooseMark(mark) {
-        this.p1.mark = mark;
-        if (mark === "o") {
-            this.p2.mark = "x";
-        } else {
-            this.p2.mark = "o";
-        }
+        this.p1.mark = "o";
+        this.p2.mark = "x";
         console.log(`${this.p1.name}'s mark is ${this.p1.mark}`);
         console.log(`${this.p2.name}'s mark is ${this.p2.mark}`);
     }

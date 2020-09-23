@@ -12,13 +12,13 @@ export default function index({ chooseMark }) {
                             <div className="marks d-flex justify-content-around m-4">
                                 <span
                                     id="o"
-                                    onClick={(e) => chooseMark(e.target.id)}
+                                    onClick={(e) =>{e.preventDefault(); chooseMark("o")}}
                                 >
                                     o
                                 </span>
                                 <span
                                     id="x"
-                                    onClick={(e) => chooseMark(e.target.id)}
+                                    onClick={(e) => {e.preventDefault(); chooseMark(e.target.id)}}
                                 >
                                     x
                                 </span>
