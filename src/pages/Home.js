@@ -56,7 +56,13 @@ export default function Home() {
                     {
                         game ? (
                             game.marks.map((mark, i) => (
-                                <div key={i} className='box col-4'>{mark}</div>
+                                <div 
+                                    key={i} 
+                                    className='box col-4' 
+                                    onClick={() => {game.addMark(i); console.log(game.marks)}}
+                                >
+                                    {mark}
+                                </div>
                             ))
                         ) : ''
                     }
