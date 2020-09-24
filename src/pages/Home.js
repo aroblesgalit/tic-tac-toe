@@ -15,24 +15,24 @@ export default function Home() {
             const newGame = new Game("Alvin", "Davis");
             return newGame;
         })
+        setStart(null);
+    }
+
+    function closeModal() {
         setStart(true);
         console.log(game)
     }
 
-    function closeModal() {
-        setStart(null);
-    }
-
     return (
         <div>
-            { start ? <MarkModal game={game} closeModal={closeModal} /> : ''}
+            { start === null ? <MarkModal game={game} closeModal={closeModal} /> : ''}
             <h1>Tic Tac Toe</h1>
             <h3>
                 {
-                    start === null ? `${game.p1.name} vs ${game.p2.name}` : ''
+                    start ? `${game.p1.name} vs ${game.p2.name}` : ''
                 }
             </h3>
-            {start === null ? `Turn ${game.turn}` : ''}
+            {start ? `Turn ${game.turn}` : ''}
             <StartBtn start={start} handleStart={handleStart} />
 
             <div className='container'>

@@ -5,7 +5,7 @@ export default function Grid({ start, game }) {
     return (
         <div className='box-wrapper row'>
             {
-                start === null ? (
+                start ? (
                     game.marks.map((mark, i) => (
                         <div
                             key={i}
