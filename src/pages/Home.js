@@ -3,6 +3,7 @@ import './pages.css'
 import Game from '../components/Game'
 import MarkModal from '../components/MarkModal'
 import Grid from '../components/Grid'
+import StartBtn from '../components/StartBtn'
 
 export default function Home() {
 
@@ -30,23 +31,7 @@ export default function Home() {
             { start ? <MarkModal game={game} closeModal={closeModal} /> : ''}
             <h1>Tic Tac Toe</h1>
             {start === null ? `Turn ${game.turn}` : ''}
-            {
-                start
-                    ? ""
-                    : (
-                        start === null
-                            ? ''
-                            : (
-                                <button
-                                    type='button'
-                                    className='btn btn-primary'
-                                    onClick={handleStart}
-                                >
-                                    Start
-                                </button>
-                            )
-                    )
-            }
+            <StartBtn start={start} handleStart={handleStart} />
             <h1>
                 {
                     start ? `${game.p1.name} vs ${game.p2.name}` : ''
