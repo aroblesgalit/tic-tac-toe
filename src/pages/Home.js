@@ -54,12 +54,12 @@ export default function Home() {
             <div className='container'>
                 <div className='box-wrapper row'>
                     {
-                        game ? (
+                        start === null ? (
                             game.marks.map((mark, i) => (
                                 <div 
                                     key={i} 
                                     className='box col-4' 
-                                    onClick={() => {game.addMark(i); console.log(game.marks)}}
+                                    onClick={() => {game.addMark(i); console.log(game)}}
                                 >
                                     {mark}
                                 </div>
