@@ -28,7 +28,7 @@ export default function Home() {
         <div>
             { start ? <MarkModal chooseMark={() => { game.chooseMark(); closeModal() }} /> : ''}
             <h1>Tic Tac Toe</h1>
-
+            {start === null ? `Turn ${game.turn}` : ''}
             {
                 start
                     ? ""
@@ -59,7 +59,7 @@ export default function Home() {
                                 <div 
                                     key={i} 
                                     className='box col-4' 
-                                    onClick={() => {game.addMark(i); console.log(game)}}
+                                    onClick={() => {game.addMark(i); console.log(game.marks)}}
                                 >
                                     {mark}
                                 </div>
