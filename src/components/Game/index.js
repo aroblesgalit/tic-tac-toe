@@ -17,26 +17,27 @@ class Game {
     }
 
     chooseMark(mark) {
-        this.p1.mark = "o";
-        this.p2.mark = "x";
-        // if (mark === "x") {
-        //     this.p2.mark = "o";
-        // } else {
-        //     this.p2.mark = "x";
-        // }
+        this.p1.mark = mark;
+        if (mark === "x") {
+            this.p2.mark = "o";
+        } else {
+            this.p2.mark = "x";
+        }
         console.log(`${this.p1.name}'s mark is ${this.p1.mark}`);
         console.log(`${this.p2.name}'s mark is ${this.p2.mark}`);
     }
 
     addMark(index) {
-        if (this.marks[index] === null) {
+        let marksTemp = [...this.marks];
+        if (marksTemp[index] === null) {
             if (this.turn === 0) {
-                this.marks[index] = this.p1.mark;
+                marksTemp[index] = this.p1.mark;
                 this.turn = 1;
             } else {
-                this.marks[index] = this.p2.mark;
+                marksTemp[index] = this.p2.mark;
                 this.turn = 0;
             }
+            this.marks = marksTemp;
         }
         this.checkForWin();
     }

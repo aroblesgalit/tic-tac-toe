@@ -1,7 +1,7 @@
 import React from 'react'
 import './markModal.css'
 
-export default function index({ chooseMark }) {
+export default function index({ game, closeModal }) {
     return (
         <div className="mark-container container position-fixed">
             <div className="row d-flex justify-content-center">
@@ -11,12 +11,12 @@ export default function index({ chooseMark }) {
                             <h5 className="card-title">Choose your Mark</h5>
                             <div className="marks d-flex justify-content-around m-4">
                                 <span
-                                    onClick={() => chooseMark("o")}
+                                    onClick={() => {game.chooseMark("o"); closeModal()}}
                                 >
                                     o
                                 </span>
                                 <span
-                                    onClick={() => chooseMark("x")}
+                                    onClick={() => {game.chooseMark("x"); closeModal()}}
                                 >
                                     x
                                 </span>

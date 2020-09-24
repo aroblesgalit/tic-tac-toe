@@ -5,7 +5,7 @@ import MarkModal from '../components/MarkModal'
 
 export default function Home() {
 
-    const [game, setGame] = useState();
+    const [game, setGame] = useState({});
     const [start, setStart] = useState(false);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function Home() {
 
     return (
         <div>
-            { start ? <MarkModal chooseMark={() => { game.chooseMark(); closeModal() }} /> : ''}
+            { start ? <MarkModal game={game} closeModal={closeModal} /> : ''}
             <h1>Tic Tac Toe</h1>
             {start === null ? `Turn ${game.turn}` : ''}
             {
