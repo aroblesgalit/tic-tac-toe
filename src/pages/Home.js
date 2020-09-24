@@ -30,13 +30,14 @@ export default function Home() {
         <div>
             { start ? <MarkModal game={game} closeModal={closeModal} /> : ''}
             <h1>Tic Tac Toe</h1>
+            <h3>
+                {
+                    start === null ? `${game.p1.name} vs ${game.p2.name}` : ''
+                }
+            </h3>
             {start === null ? `Turn ${game.turn}` : ''}
             <StartBtn start={start} handleStart={handleStart} />
-            <h1>
-                {
-                    start ? `${game.p1.name} vs ${game.p2.name}` : ''
-                }
-            </h1>
+
             <div className='container'>
                 <Grid game={game} start={start} />
             </div>

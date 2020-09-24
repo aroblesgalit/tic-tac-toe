@@ -14,6 +14,7 @@ class Game {
             null, null, null
         ];
         this.turn = 0;
+        this.gameOver = false;
     }
 
     chooseMark(mark) {
@@ -28,21 +29,23 @@ class Game {
     }
 
     addMark(index) {
-        let marksTemp = [...this.marks];
-        if (marksTemp[index] === null) {
+        if (this.gameOver) return;
+        let marks = [...this.marks];
+        if (marks[index] === null) {
             if (this.turn === 0) {
-                marksTemp[index] = this.p1.mark;
+                marks[index] = this.p1.mark;
                 this.turn = 1;
             } else {
-                marksTemp[index] = this.p2.mark;
+                marks[index] = this.p2.mark;
                 this.turn = 0;
             }
-            this.marks = marksTemp;
+            this.marks = marks;
         }
         this.checkForWin();
     }
 
     checkForWin() {
+        console.log(this.marks);
         let cell1 = this.marks[0];
         let cell2 = this.marks[1];
         let cell3 = this.marks[2];
@@ -60,7 +63,8 @@ class Game {
             || (cell3 === cell6 && cell3 === cell9 && cell3 !== null)
             || (cell1 === cell5 && cell1 === cell9 && cell1 !== null)
             || (cell3 === cell5 && cell3 === cell7 && cell3 !== null)) {
-                alert("Game over!")
+                this.gameOver = true;
+                alert("Game over!");
             }
     }
 }

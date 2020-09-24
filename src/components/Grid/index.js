@@ -10,7 +10,7 @@ export default function Grid({ start, game }) {
                         <div
                             key={i}
                             className='box col-4'
-                            onClick={() => { game.addMark(i); console.log(game.marks) }}
+                            onClick={() => game.addMark(i)}
                         >
                             {mark}
                         </div>
