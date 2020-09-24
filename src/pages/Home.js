@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './pages.css'
 import Game from '../components/Game'
 import MarkModal from '../components/MarkModal'
+import Grid from '../components/Grid'
 
 export default function Home() {
 
@@ -52,21 +53,7 @@ export default function Home() {
                 }
             </h1>
             <div className='container'>
-                <div className='box-wrapper row'>
-                    {
-                        start === null ? (
-                            game.marks.map((mark, i) => (
-                                <div 
-                                    key={i} 
-                                    className='box col-4' 
-                                    onClick={() => {game.addMark(i); console.log(game.marks)}}
-                                >
-                                    {mark}
-                                </div>
-                            ))
-                        ) : ''
-                    }
-                </div>
+                <Grid game={game} start={start} />
             </div>
         </div>
     )
