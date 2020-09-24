@@ -5,17 +5,13 @@ export default function StartBtn({ start, handleStart }) {
         <React.Fragment>
             {
                 start === false ? (
-                    start === null
-                        ? ''
-                        : (
-                            <button
-                                type='button'
-                                className='btn btn-primary'
-                                onClick={handleStart}
-                            >
-                                Start
-                            </button>
-                        )
+                    <button
+                        type='button'
+                        className='btn btn-primary'
+                        onClick={handleStart}
+                    >
+                        Start
+                    </button>
                 ) : ''
             }
         </React.Fragment>
