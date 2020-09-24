@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './pages.css'
 import Game from '../components/Game'
 import MarkModal from '../components/MarkModal'
@@ -10,16 +10,13 @@ export default function Home() {
     const [game, setGame] = useState({});
     const [start, setStart] = useState(false);
 
-    useEffect(() => {
+    function handleStart() {
         setGame(() => {
             const newGame = new Game("Alvin", "Davis");
             return newGame;
         })
-    }, [])
-
-    function handleStart() {
-        console.log(game)
         setStart(true);
+        console.log(game)
     }
 
     function closeModal() {
@@ -39,7 +36,9 @@ export default function Home() {
             <StartBtn start={start} handleStart={handleStart} />
 
             <div className='container'>
-                <Grid game={game} start={start} />
+                {
+                    game.gameOver ? '' : <Grid game={game} start={start} />
+                }
             </div>
         </div>
     )
