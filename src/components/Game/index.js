@@ -63,9 +63,11 @@ class Game {
             || (cell3 === cell6 && cell3 === cell9 && cell3 !== null)
             || (cell1 === cell5 && cell1 === cell9 && cell1 !== null)
             || (cell3 === cell5 && cell3 === cell7 && cell3 !== null)) {
-                this.gameOver = true;
-                alert("Game over!");
-            }
+            this.gameOver = true;
+            alert("We have winner!");
+        } else if (this.marks.every(mark => mark !== null)) {
+            alert("Game over. No winner.")
+        }
     }
 }
 

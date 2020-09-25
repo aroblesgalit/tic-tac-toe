@@ -36,7 +36,6 @@ export default function Home() {
                     start ? `${game.p1.name} vs ${game.p2.name}` : ''
                 }
             </h3>
-            {start ? `Turn ${game.turn}` : ''}
             <StartBtn start={start} handleStart={handleStart} />
 
             <div className='container'>
