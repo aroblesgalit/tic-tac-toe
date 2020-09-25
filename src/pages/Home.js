@@ -23,6 +23,10 @@ export default function Home() {
         console.log(game)
     }
 
+    if (game.gameOver) {
+        setStart(false)
+    }
+
     return (
         <div>
             { start === null ? <MarkModal game={game} closeModal={closeModal} /> : ''}
