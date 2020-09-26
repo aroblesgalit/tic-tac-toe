@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Game from '../components/Game';
 
 const GameContext = React.createContext();
 
@@ -21,7 +22,7 @@ function GameProvider(props) {
         console.log(game)
     }
 
-    if (game.gameOver) {
+    if (game && game.gameOver) {
         setStart(false)
     }
 

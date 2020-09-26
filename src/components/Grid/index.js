@@ -3,9 +3,9 @@ import './grid.css'
 
 export default function Grid({ start, game }) {
 
-    if (game.gameOver) {
-        return 'Start a New Game!'
-    }
+    // if (game.gameOver) {
+    //     return 'Start a New Game!'
+    // }
 
     return (
         <div className='box-wrapper row'>
