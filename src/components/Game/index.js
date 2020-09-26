@@ -66,6 +66,7 @@ class Game {
             this.gameOver = true;
             alert("We have winner!");
         } else if (this.marks.every(mark => mark !== null)) {
+            this.gameOver = true;
             alert("Game over. No winner.")
         }
     }
