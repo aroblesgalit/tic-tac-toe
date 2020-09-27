@@ -1,5 +1,5 @@
 class Game {
-    constructor(p1, p2) {
+    constructor(p1, p2, renderer) {
         this.p1 = {
             name: p1,
             mark: null
@@ -15,6 +15,7 @@ class Game {
         ];
         this.turn = 0;
         this.gameOver = false;
+        this.renderer = renderer;
     }
 
     chooseMark(mark) {
