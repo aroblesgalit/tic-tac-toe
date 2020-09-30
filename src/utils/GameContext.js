@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Game from '../components/Game';
+import BoardRendererInterface from '../components/BoardRendererInterface'
 
 const GameContext = React.createContext();
 
@@ -11,7 +12,7 @@ function GameProvider(props) {
 
     function handleStart() {
         setGame(() => {
-            const newGame = new Game("Alvin", "Davis");
+            const newGame = new Game("Alvin", "Davis", BoardRendererInterface);
             return newGame;
         })
         setStart(null);

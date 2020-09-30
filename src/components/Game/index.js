@@ -1,11 +1,11 @@
 class Game {
-    constructor(p1, p2, renderer) {
+    constructor(renderer) {
         this.p1 = {
-            name: p1,
+            name: "",
             mark: null
         };
         this.p2 = {
-            name: p2,
+            name: "",
             mark: null
         };
         this.marks = [
@@ -16,6 +16,11 @@ class Game {
         this.turn = 0;
         this.gameOver = false;
         this.renderer = renderer;
+    }
+
+    addNames(p1, p2) {
+        this.p1.name = p1;
+        this.p2.name = p2;
     }
 
     chooseMark(mark) {
