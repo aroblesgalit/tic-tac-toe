@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './namesModal.css'
 
-export default function index() {
+export default function Index({ game }) {
+
+    const [player1Name, setPlayer1Name] = useState("");
+    const [player2Name, setPlayer2Name] = useState("");
+
     return (
         <div className="names-container container position-fixed">
             <div className="row d-flex justify-content-center">
@@ -13,19 +17,33 @@ export default function index() {
                                 <form>
                                     <div className="row">
                                         <div className="col">
-                                            <input 
+                                            <input
                                                 type="text"
                                                 className="form-control"
                                                 placeholder="PLAYER 1"
+                                                onChange={(e) => setPlayer1Name(e.target.value)}
                                             />
                                         </div>
                                         <div className="col">
-                                            <input 
+                                            <input
                                                 type="text"
                                                 className="form-control"
                                                 placeholder="PLAYER 2"
+                                                onChange={(e) => setPlayer2Name(e.target.value)}
                                             />
                                         </div>
+                                    </div>
+                                    <div className="row">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                game.addNames(player1Name, player2Name);
+                                            }}
+                                        >
+                                            Next
+                                        </button>
                                     </div>
                                 </form>
                             </div>

@@ -3,6 +3,7 @@ import './pages.css'
 import MarkModal from '../components/MarkModal'
 import Grid from '../components/Grid'
 import StartBtn from '../components/StartBtn'
+import NamesModal from '../components/NamesModal'
 import { GameConsumer } from '../utils/GameContext'
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
                         const { start, game, closeModal, handleStart } = value;
                         return (
                             <React.Fragment>
-                                {start === null ? <MarkModal game={game} closeModal={closeModal} /> : ''}
+                                {/* {start === null ? <MarkModal game={game} closeModal={closeModal} /> : ''} */}
+                                {start === null ? <NamesModal game={game} /> : ''}
                                 <h1>Tic Tac Toe</h1>
                                 <h3>
                                     {
