@@ -17,14 +17,12 @@
     /* width: 60%; */
 }
 
-.marks span {
-    border: 1px solid #c0c0c0;
-    width: 100px;
-    height: 100px;
+.next-btn {
+    margin: 20px auto 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 80px;
-    line-height: -2px;
-    cursor: pointer;
+}
+
+.next-btn button {
+    width: 100px;
 }

@@ -34,7 +34,7 @@ export default function Index({ game }) {
                                             />
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="next-btn row">
                                         <GameConsumer>
                                             {
                                                 value => {

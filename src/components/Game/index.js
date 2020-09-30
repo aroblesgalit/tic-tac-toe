@@ -19,8 +19,13 @@ class Game {
     }
 
     addNames(p1, p2) {
-        this.p1.name = p1;
-        this.p2.name = p2;
+        if (p1 && p2) {
+            this.p1.name = p1;
+            this.p2.name = p2;
+        } else {
+            this.p1.name = "Player 1";
+            this.p2.name = "Player 2";
+        }
     }
 
     chooseMark(mark) {
