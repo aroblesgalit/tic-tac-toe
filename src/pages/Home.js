@@ -12,11 +12,11 @@ export default function Home() {
             <GameConsumer>
                 {
                     value => {
-                        const { start, game, closeModal, handleStart, marks } = value;
+                        const { start, game, closeModal, handleStart, marks, names } = value;
                         return (
                             <React.Fragment>
                                 {marks ? <MarkModal game={game} closeModal={closeModal} /> : ''}
-                                {start === null ? <NamesModal game={game} /> : ''}
+                                {names ? <NamesModal game={game} /> : ''}
                                 <h1>Tic Tac Toe</h1>
                                 <h3>
                                     {

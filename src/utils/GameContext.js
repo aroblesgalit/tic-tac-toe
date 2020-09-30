@@ -17,11 +17,16 @@ function GameProvider(props) {
             const newGame = new Game("Alvin", "Davis", BoardRendererInterface);
             return newGame;
         })
+        openNames();
         setStart(null);
     }
 
     function openNames() {
         setNames(true);
+    }
+
+    function closeNames() {
+        setNames(false);
     }
 
     function openMarks() {
@@ -31,7 +36,6 @@ function GameProvider(props) {
     function closeModal() {
         setStart(true);
         setMarks(false);
-        setNames(false);
         console.log(game)
     }
 
@@ -50,7 +54,7 @@ function GameProvider(props) {
                 setStart,
                 closeModal,
                 openMarks,
-                openNames
+                closeNames
             }}
         >
             {props.children}

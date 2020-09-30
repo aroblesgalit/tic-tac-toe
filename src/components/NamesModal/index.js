@@ -46,6 +46,7 @@ export default function Index({ game }) {
                                                                 e.preventDefault();
                                                                 game.addNames(player1Name, player2Name);
                                                                 value.openMarks();
+                                                                value.closeNames();
                                                             }}
                                                         >
                                                             Next
