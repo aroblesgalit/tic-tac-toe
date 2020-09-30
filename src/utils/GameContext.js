@@ -9,6 +9,7 @@ function GameProvider(props) {
 
     const [game, setGame] = useState();
     const [start, setStart] = useState(false);
+    const [names, setNames] = useState(false);
     const [marks, setMarks] = useState(false);
 
     function handleStart() {
@@ -19,6 +20,10 @@ function GameProvider(props) {
         setStart(null);
     }
 
+    function openNames() {
+        setNames(true);
+    }
+
     function openMarks() {
         setMarks(true);
     }
@@ -26,6 +31,7 @@ function GameProvider(props) {
     function closeModal() {
         setStart(true);
         setMarks(false);
+        setNames(false);
         console.log(game)
     }
 
@@ -38,9 +44,13 @@ function GameProvider(props) {
             value={{
                 game,
                 start,
+                marks,
+                names,
                 handleStart,
                 setStart,
-                closeModal
+                closeModal,
+                openMarks,
+                openNames
             }}
         >
             {props.children}

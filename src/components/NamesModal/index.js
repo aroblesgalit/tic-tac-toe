@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './namesModal.css'
+import { GameConsumer } from '../../utils/GameContext'
 
 export default function Index({ game }) {
 
@@ -34,16 +35,25 @@ export default function Index({ game }) {
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <button
-                                            type="submit"
-                                            className="btn btn-primary"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                game.addNames(player1Name, player2Name);
-                                            }}
-                                        >
-                                            Next
-                                        </button>
+                                        <GameConsumer>
+                                            {
+                                                value => {
+                                                    return (
+                                                        <button
+                                                            type="submit"
+                                                            className="btn btn-primary"
+                                                            onClick={(e) => {
+                                                                e.preventDefault();
+                                                                game.addNames(player1Name, player2Name);
+                                                                value.openMarks();
+                                                            }}
+                                                        >
+                                                            Next
+                                                        </button>
+                                                    )
+                                                }}
+                                        </GameConsumer>
+
                                     </div>
                                 </form>
                             </div>
