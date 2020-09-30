@@ -9,6 +9,7 @@ function GameProvider(props) {
 
     const [game, setGame] = useState();
     const [start, setStart] = useState(false);
+    const [marks, setMarks] = useState(false);
 
     function handleStart() {
         setGame(() => {
@@ -18,8 +19,13 @@ function GameProvider(props) {
         setStart(null);
     }
 
+    function openMarks() {
+        setMarks(true);
+    }
+
     function closeModal() {
         setStart(true);
+        setMarks(false);
         console.log(game)
     }
 
