@@ -7,7 +7,7 @@ export default function Grid({ start, game }) {
     // if (game.gameOver) {
     //     return 'Start a New Game!'
     // }
-    class boardRendererInt extends BoardRendererInterface {
+    class boardRendererInt extends game.renderer {
         draw(marks) {
             return (
                 marks.map((mark, i) => (

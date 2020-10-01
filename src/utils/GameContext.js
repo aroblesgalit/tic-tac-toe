@@ -14,7 +14,7 @@ function GameProvider(props) {
 
     function handleStart() {
         setGame(() => {
-            const newGame = new Game("Alvin", "Davis", BoardRendererInterface);
+            const newGame = new Game(BoardRendererInterface);
             return newGame;
         })
         openNames();

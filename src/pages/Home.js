@@ -27,7 +27,7 @@ export default function Home() {
 
                                 <div className='container'>
                                     {
-                                        game && game.gameOver ? '' : <Grid game={game} start={start} />
+                                        game && game.gameOver ? '' : ( game ? <Grid game={game} start={start} /> : '')
                                     }
                                 </div>
                             </React.Fragment>
