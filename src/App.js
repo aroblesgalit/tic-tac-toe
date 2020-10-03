@@ -1,15 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import { GameProvider } from './utils/GameContext';
+import NewHome from './pages/NewHome';
 
 function App() {
   return (
     <GameProvider>
-      <div className="App">
-        <Home />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/new'>
+            <NewHome />
+          </Route>
+        </Switch>
+      </Router>
+
     </GameProvider>
   );
 }

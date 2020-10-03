@@ -17,7 +17,7 @@ export default function Home() {
                             <section className='main-container'>
                                 {marks ? <MarkModal game={game} closeModal={closeModal} /> : ''}
                                 {names ? <NamesModal game={game} /> : ''}
-                                <h1>Tic Tac Toe</h1>
+                                <h1>Tic Tac Toe 2</h1>
                                 <h3>
                                     {
                                         start ? `${game.p1.name} vs ${game.p2.name}` : ''
