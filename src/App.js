@@ -4,21 +4,23 @@ import './App.css';
 import Home from './pages/Home';
 import { GameProvider } from './utils/GameContext';
 import NewHome from './pages/NewHome';
+import { NewGameProvider } from './utils/NewGameContext';
 
 function App() {
   return (
     <GameProvider>
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/new'>
-            <NewHome />
-          </Route>
-        </Switch>
-      </Router>
-
+      <NewGameProvider>
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path='/new'>
+              <NewHome />
+            </Route>
+          </Switch>
+        </Router>
+      </NewGameProvider>
     </GameProvider>
   );
 }
