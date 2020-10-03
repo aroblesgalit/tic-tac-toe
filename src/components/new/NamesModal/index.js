@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './namesModal.css'
-import { GameConsumer } from '../../utils/GameContext'
+import { NewGameConsumer } from '../../../utils/NewGameContext'
 
 export default function Index({ game }) {
 
@@ -35,7 +35,7 @@ export default function Index({ game }) {
                                         </div>
                                     </div>
                                     <div className="next-btn row">
-                                        <GameConsumer>
+                                        <NewGameConsumer>
                                             {
                                                 value => {
                                                     return (
@@ -53,7 +53,7 @@ export default function Index({ game }) {
                                                         </button>
                                                     )
                                                 }}
-                                        </GameConsumer>
+                                        </NewGameConsumer>
 
                                     </div>
                                 </form>

@@ -1,41 +1,36 @@
 import React from 'react'
 import './pages.css'
-import MarkModal from '../components/MarkModal'
-import Grid from '../components/Grid'
-import StartBtn from '../components/StartBtn'
-import NamesModal from '../components/NamesModal'
-import { GameConsumer } from '../utils/GameContext'
+import MarkModal from '../components/new/MarkModal'
+import Grid from '../components/new/Grid'
+import StartBtn from '../components/new/StartBtn'
+import NamesModal from '../components/new/NamesModal'
+import { NewGameConsumer } from '../utils/NewGameContext'
 
 export default function Home() {
     return (
         <div>
-            <GameConsumer>
+            <NewGameConsumer>
                 {
                     value => {
-                        const { start, game, closeModal, handleStart, marks, names } = value;
+                        const { start, openNamesModal } = value;
                         return (
                             <section className='main-container'>
-                                {marks ? <MarkModal game={game} closeModal={closeModal} /> : ''}
-                                {names ? <NamesModal game={game} /> : ''}
+                                <NamesModal />
                                 <h1>Tic Tac Toe 2</h1>
                                 <h3>
-                                    {
-                                        start ? `${game.p1.name} vs ${game.p2.name}` : ''
-                                    }
+
                                 </h3>
-                                <StartBtn start={start} handleStart={handleStart} />
+                                <StartBtn start={start} handleStart={openNamesModal} />
 
                                 <div className='container'>
-                                    {
-                                        game && game.gameOver ? '' : ( game ? <Grid game={game} start={start} /> : '')
-                                    }
+
                                 </div>
                                 
                             </section>
                         )
                     }
                 }
-            </GameConsumer>
+            </NewGameConsumer>
         </div>
     )
 }

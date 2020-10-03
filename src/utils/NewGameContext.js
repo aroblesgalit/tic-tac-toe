@@ -7,7 +7,8 @@ const NewGameContext = React.createContext();
 function NewGameProvider(props) {
 
     const [game, setGame] = useState({
-        start: null,
+        start: false,
+        namesModal: false,
         turn: 0,
         marks: [
             null, null, null,
@@ -26,8 +27,22 @@ function NewGameProvider(props) {
         mark: null
     })
 
+    function openNamesModal() {
+        setGame({
+            ...game,
+            namesModal: true
+        })
+    }
+
     return (
-        <NewGameContext.Provider>
+        <NewGameContext.Provider
+            value={{
+                ...game,
+                player1,
+                player2,
+                openNamesModal
+            }}
+        >
             {props.children}
         </NewGameContext.Provider>
     )
