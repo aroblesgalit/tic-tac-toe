@@ -8,15 +8,17 @@ function NewGameProvider(props) {
 
     const [game, setGame] = useState({
         start: false,
+        gameOver: false,
         namesModal: false,
         marksModal: false,
-        turn: 0,
-        marks: [
-            null, null, null,
-            null, null, null,
-            null, null, null
-        ]
+        turn: 0
     })
+
+    const [marks, setMarks] = useState([
+        null, null, null,
+        null, null, null,
+        null, null, null
+    ])
 
     const [player1, setPlayer1] = useState({
         name: '',
@@ -78,7 +80,8 @@ function NewGameProvider(props) {
     }
 
     function addMark(index) {
-        let tempMarks = [...game.marks];
+        if (game.gameOver) return;
+        let tempMarks = [...marks];
         if (tempMarks[index] === null) {
             if (game.turn === 0) {
                 tempMarks[index] = player1.mark;
@@ -87,20 +90,50 @@ function NewGameProvider(props) {
                 tempMarks[index] = player2.mark;
                 game.turn = 0;
             }
+            setMarks(tempMarks)
+        }
+        setTimeout(() => {
+            checkForWin(tempMarks);
+        }, 250);
+    }
+
+    function checkForWin(marks) {
+        let cell1 = marks[0];
+        let cell2 = marks[1];
+        let cell3 = marks[2];
+        let cell4 = marks[3];
+        let cell5 = marks[4];
+        let cell6 = marks[5];
+        let cell7 = marks[6];
+        let cell8 = marks[7];
+        let cell9 = marks[8];
+        if ((cell1 === cell2 && cell1 === cell3 && cell1 !== null)
+            || (cell4 === cell5 && cell4 === cell6 && cell4 !== null)
+            || (cell7 === cell8 && cell7 === cell9 && cell7 !== null)
+            || (cell1 === cell4 && cell1 === cell7 && cell1 !== null)
+            || (cell2 === cell5 && cell2 === cell8 && cell2 !== null)
+            || (cell3 === cell6 && cell3 === cell9 && cell3 !== null)
+            || (cell1 === cell5 && cell1 === cell9 && cell1 !== null)
+            || (cell3 === cell5 && cell3 === cell7 && cell3 !== null)) {
             setGame({
                 ...game,
-                marks: tempMarks
+                gameOver: true
             })
+            alert("We have winner!");
+        } else if (marks.every(mark => mark !== null)) {
+            setGame({
+                ...game,
+                gameOver: true
+            })
+            alert("Game over. No winner.")
         }
-        console.log('players', player1, player2)
-        console.log(game.marks)
-        // this.checkForWin();
     }
 
     return (
         <NewGameContext.Provider
             value={{
                 ...game,
+                marks,
                 player1,
                 player2,
                 openNamesModal,
