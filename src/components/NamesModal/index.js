@@ -8,9 +8,9 @@ export default function Index({ game }) {
     const [player2Name, setPlayer2Name] = useState("");
 
     return (
-        <div className="names-container container position-fixed">
+        <div className="names-container position-fixed">
             <div className="row d-flex justify-content-center">
-                <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="col">
                     <div className="card">
                         <div className="card-body d-flex flex-column align-items-center">
                             <h5 className="card-title">Names</h5>
