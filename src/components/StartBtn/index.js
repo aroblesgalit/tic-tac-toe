@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './startBtn.css';
 
 export default function StartBtn({ start, handleStart }) {
     return (
@@ -7,7 +8,7 @@ export default function StartBtn({ start, handleStart }) {
                 start === false ? (
                     <button
                         type='button'
-                        className='btn btn-primary'
+                        className='start-btn btn btn-primary'
                         onClick={handleStart}
                     >
                         Start
