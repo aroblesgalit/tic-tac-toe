@@ -13,7 +13,7 @@ export default function Grid() {
                                 <div
                                     key={i}
                                     className='box col-4'
-                                    onClick={() => console.log(value.marks)}
+                                    onClick={() => value.addMark(i)}
                                 >
                                     {mark}
                                 </div>

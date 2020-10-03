@@ -22,7 +22,7 @@ function NewGameProvider(props) {
         name: '',
         mark: null
     })
-    
+
     const [player2, setPlayer2] = useState({
         name: '',
         mark: null
@@ -35,14 +35,14 @@ function NewGameProvider(props) {
         })
     }
 
-    function addNames(player1, player2) {
+    function addNames(p1, p2) {
         setPlayer1({
             ...player1,
-            name: player1
+            name: p1
         })
         setPlayer2({
             ...player2,
-            name: player2
+            name: p2
         })
     }
 
@@ -54,7 +54,7 @@ function NewGameProvider(props) {
         })
     }
 
-    function addMarks(mark) {
+    function chooseMarks(mark) {
         setPlayer1({
             ...player1,
             mark: mark
@@ -77,6 +77,26 @@ function NewGameProvider(props) {
         })
     }
 
+    function addMark(index) {
+        let tempMarks = [...game.marks];
+        if (tempMarks[index] === null) {
+            if (game.turn === 0) {
+                tempMarks[index] = player1.mark;
+                game.turn = 1;
+            } else {
+                tempMarks[index] = player2.mark;
+                game.turn = 0;
+            }
+            setGame({
+                ...game,
+                marks: tempMarks
+            })
+        }
+        console.log('players', player1, player2)
+        console.log(game.marks)
+        // this.checkForWin();
+    }
+
     return (
         <NewGameContext.Provider
             value={{
@@ -86,7 +106,8 @@ function NewGameProvider(props) {
                 openNamesModal,
                 openMarksModal,
                 addNames,
-                addMarks
+                chooseMarks,
+                addMark
             }}
         >
             {props.children}

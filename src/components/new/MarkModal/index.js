@@ -16,12 +16,12 @@ export default function index() {
                                         return (
                                             <div className="marks d-flex justify-content-around m-2">
                                                 <div
-                                                    onClick={() => { value.addMarks('o') }}
+                                                    onClick={() => { value.chooseMarks('o') }}
                                                 >
                                                     o
                                             </div>
                                                 <div
-                                                    onClick={() => { value.addMarks('x') }}
+                                                    onClick={() => { value.chooseMarks('x') }}
                                                 >
                                                     x
                                             </div>
