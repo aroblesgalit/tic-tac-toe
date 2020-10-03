@@ -44,9 +44,8 @@ export default function Index({ game }) {
                                                             className="btn btn-primary"
                                                             onClick={(e) => {
                                                                 e.preventDefault();
-                                                                game.addNames(player1Name, player2Name);
-                                                                value.openMarks();
-                                                                value.closeNames();
+                                                                value.openMarksModal();
+                                                                value.addNames(player1Name, player2Name);
                                                             }}
                                                         >
                                                             Next

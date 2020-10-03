@@ -1,36 +1,27 @@
 import React from 'react'
 import './grid.css'
+import { NewGameConsumer } from '../../../utils/NewGameContext'
 
-export default function Grid({ start, game }) {
-
-    // if (game.gameOver) {
-    //     return 'Start a New Game!'
-    // }
-    class boardRendererInt extends game.renderer {
-        draw(marks) {
-            return (
-                marks.map((mark, i) => (
-                    <div
-                        key={i}
-                        className='box col-4'
-                        onClick={() => game.addMark(i)}
-                    >
-                        {mark}
-                    </div>
-                ))
-            )
-        }
-    }
-
-    const board = new boardRendererInt(); 
-
+export default function Grid() {
     return (
         <div className='box-wrapper row'>
-            {
-                start ? (
-                    board.draw(game.marks)
-                ) : ''
-            }
+            <NewGameConsumer>
+                {
+                    value => {
+                        return (
+                            value.marks.map((mark, i) => (
+                                <div
+                                    key={i}
+                                    className='box col-4'
+                                    onClick={() => console.log(value.marks)}
+                                >
+                                    {mark}
+                                </div>
+                            ))
+                        )
+                    }
+                }
+            </NewGameConsumer>
         </div>
     )
 }

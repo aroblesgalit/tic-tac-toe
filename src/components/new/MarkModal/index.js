@@ -1,7 +1,8 @@
 import React from 'react'
 import './markModal.css'
+import { NewGameConsumer } from '../../../utils/NewGameContext'
 
-export default function index({ game, closeModal }) {
+export default function index() {
     return (
         <div className="mark-container position-fixed">
             <div className="row d-flex justify-content-center">
@@ -9,18 +10,26 @@ export default function index({ game, closeModal }) {
                     <div className="card">
                         <div className="card-body d-flex flex-column align-items-center">
                             <h5 className="card-title">Choose your Mark</h5>
-                            <div className="marks d-flex justify-content-around m-2">
-                                <div
-                                    onClick={() => {game.chooseMark("o"); closeModal()}}
-                                >
-                                    o
-                                </div>
-                                <div
-                                    onClick={() => {game.chooseMark("x"); closeModal()}}
-                                >
-                                    x
-                                </div>
-                            </div>
+                            <NewGameConsumer>
+                                {
+                                    value => {
+                                        return (
+                                            <div className="marks d-flex justify-content-around m-2">
+                                                <div
+                                                    onClick={() => { value.addMarks('o') }}
+                                                >
+                                                    o
+                                            </div>
+                                                <div
+                                                    onClick={() => { value.addMarks('x') }}
+                                                >
+                                                    x
+                                            </div>
+                                            </div>
+                                        )
+                                    }
+                                }
+                            </NewGameConsumer>
                         </div>
                     </div>
                 </div>

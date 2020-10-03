@@ -12,10 +12,15 @@ export default function Home() {
             <NewGameConsumer>
                 {
                     value => {
-                        const { start, openNamesModal } = value;
+                        const { start, namesModal, marksModal, openNamesModal } = value;
                         return (
                             <section className='main-container'>
-                                <NamesModal />
+                                {
+                                    namesModal ? <NamesModal /> : ''
+                                }
+                                {
+                                    marksModal ? <MarkModal /> : ''
+                                }
                                 <h1>Tic Tac Toe 2</h1>
                                 <h3>
 
@@ -23,9 +28,11 @@ export default function Home() {
                                 <StartBtn start={start} handleStart={openNamesModal} />
 
                                 <div className='container'>
-
+                                    {
+                                        start ? <Grid /> : ''
+                                    }
                                 </div>
-                                
+
                             </section>
                         )
                     }
