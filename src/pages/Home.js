@@ -14,7 +14,7 @@ export default function Home() {
                     value => {
                         const { start, game, closeModal, handleStart, marks, names } = value;
                         return (
-                            <React.Fragment>
+                            <section className='main-container'>
                                 {marks ? <MarkModal game={game} closeModal={closeModal} /> : ''}
                                 {names ? <NamesModal game={game} /> : ''}
                                 <h1>Tic Tac Toe</h1>
@@ -30,7 +30,7 @@ export default function Home() {
                                         game && game.gameOver ? '' : ( game ? <Grid game={game} start={start} /> : '')
                                     }
                                 </div>
-                            </React.Fragment>
+                            </section>
                         )
                     }
                 }

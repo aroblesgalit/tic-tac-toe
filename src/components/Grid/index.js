@@ -1,6 +1,5 @@
 import React from 'react'
 import './grid.css'
-import BoardRendererInterface from '../BoardRendererInterface'
 
 export default function Grid({ start, game }) {
 
