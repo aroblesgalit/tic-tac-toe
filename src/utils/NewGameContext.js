@@ -129,6 +129,21 @@ function NewGameProvider(props) {
         }
     }
 
+    function playAgain() {
+        setGame({
+            start: false,
+            gameOver: false,
+            namesModal: true,
+            marksModal: false,
+            turn: 0
+        })
+        setMarks([
+            null, null, null,
+            null, null, null,
+            null, null, null
+        ])
+    }
+
     return (
         <NewGameContext.Provider
             value={{
@@ -140,7 +155,8 @@ function NewGameProvider(props) {
                 openMarksModal,
                 addNames,
                 chooseMarks,
-                addMark
+                addMark,
+                playAgain
             }}
         >
             {props.children}

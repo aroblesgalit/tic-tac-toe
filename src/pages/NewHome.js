@@ -3,6 +3,7 @@ import './pages.css'
 import MarkModal from '../components/new/MarkModal'
 import Grid from '../components/new/Grid'
 import StartBtn from '../components/new/StartBtn'
+import RestartBtn from '../components/new/RestartBtn'
 import NamesModal from '../components/new/NamesModal'
 import { NewGameConsumer } from '../utils/NewGameContext'
 
@@ -12,7 +13,7 @@ export default function Home() {
             <NewGameConsumer>
                 {
                     value => {
-                        const { start, player1, player2, namesModal, marksModal, openNamesModal } = value;
+                        const { start, gameOver, player1, player2, namesModal, marksModal, openNamesModal, playAgain } = value;
                         return (
                             <section className='main-container'>
                                 {
@@ -30,7 +31,9 @@ export default function Home() {
                                     }
                                 </h3>
                                 <StartBtn start={start} handleStart={openNamesModal} />
-
+                                {
+                                    gameOver ? <RestartBtn handleStart={playAgain} /> : '' 
+                                }
                                 <div className='container'>
                                     {
                                         start ? <Grid /> : ''
