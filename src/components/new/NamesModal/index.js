@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import './namesModal.css'
 import { NewGameConsumer } from '../../../utils/NewGameContext'
 
-export default function Index({ game }) {
+export default function Index() {
 
-    const [player1Name, setPlayer1Name] = useState("");
-    const [player2Name, setPlayer2Name] = useState("");
+    const [player1Name, setPlayer1Name] = useState("Player 1");
+    const [player2Name, setPlayer2Name] = useState("Player 2");
 
     return (
         <div className="names-container position-fixed">
