@@ -12,3 +12,20 @@
     align-items: center;
     background-color: rgb(247, 247, 247);
 }
+
+.new-link {
+    margin: 40px;
+    font-size: 14px;
+}
+
+.new-link a {
+    text-decoration: none;
+    background-color: rgb(196, 202, 202);
+    color: rgb(112, 111, 111);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.new-link a:hover {
+    background-color: rgb(187, 184, 184);
+}

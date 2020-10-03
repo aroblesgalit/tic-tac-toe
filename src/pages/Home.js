@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './pages.css'
 import MarkModal from '../components/MarkModal'
 import Grid from '../components/Grid'
@@ -27,10 +28,12 @@ export default function Home() {
 
                                 <div className='container'>
                                     {
-                                        game && game.gameOver ? '' : ( game ? <Grid game={game} start={start} /> : '')
+                                        game && game.gameOver ? '' : (game ? <Grid game={game} start={start} /> : '')
                                     }
                                 </div>
-                                
+                                <div className='new-link'>
+                                    <Link to='/new'>Click Here</Link>
+                                </div>
                             </section>
                         )
                     }
