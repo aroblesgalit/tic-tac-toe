@@ -119,7 +119,11 @@ function NewGameProvider(props) {
                 ...game,
                 gameOver: true
             })
-            alert("We have winner!");
+            if (game.turn === 1) {
+                alert(`${player1.name} wins!`);
+            } else {
+                alert(`${player2.name} wins!`);
+            }
         } else if (marks.every(mark => mark !== null)) {
             setGame({
                 ...game,

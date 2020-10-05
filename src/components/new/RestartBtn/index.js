@@ -5,7 +5,7 @@ export default function RestartBtn({ handleStart }) {
     return (
         <button
             type='button'
-            className='start-btn btn btn-primary'
+            className='start-btn btn btn-danger'
             onClick={handleStart}
         >
             Play Again
