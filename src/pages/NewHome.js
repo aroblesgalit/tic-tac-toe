@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './pages.css'
 import MarkModal from '../components/new/MarkModal'
 import Grid from '../components/new/Grid'
@@ -32,14 +33,16 @@ export default function Home() {
                                 </h3>
                                 <StartBtn start={start} handleStart={openNamesModal} />
                                 {
-                                    gameOver ? <RestartBtn handleStart={playAgain} /> : '' 
+                                    gameOver ? <RestartBtn handleStart={playAgain} /> : ''
                                 }
                                 <div className='container'>
                                     {
                                         start ? <Grid /> : ''
                                     }
                                 </div>
-
+                                <div className='new-link'>
+                                    <Link to='/'>That</Link>
+                                </div>
                             </section>
                         )
                     }

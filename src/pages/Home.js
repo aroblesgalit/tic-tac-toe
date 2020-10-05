@@ -32,7 +32,7 @@ export default function Home() {
                                     }
                                 </div>
                                 <div className='new-link'>
-                                    <Link to='/new'>Click Here</Link>
+                                    <Link to='/new'>This</Link>
                                 </div>
                             </section>
                         )
